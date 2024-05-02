@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load svg %}
+
 {% block content %}
+<br>
+<h1 class="display-6">Trending</h1>
+<div class="trending">
+    <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
+        class="trending-item" alt="Trending Movie">
+    <div class="trending-text">
+        <span>2019</span>
+        <span>&bull;</span>
+        <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+        <span>Movie</span>
+        <span>&bull;</span>
+        <span>PG</span>
+        <h5 class="trending-title">Beyond Earth</h5>
+    </div>
 
-Search for movies or TV series
-  
-Trending
-
-<!-- Display trending shows -->
-
-Recommended for you
-
-<!-- Display recommended shows -->
-
+</div>
 {% endblock %}

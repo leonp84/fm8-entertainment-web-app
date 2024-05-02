@@ -1,4 +1,10 @@
 {% load static %}
+{% load svg %}
+
+{% url 'main' as main_url %}
+{% url 'movies' as movies_url %}
+{% url 'tv-series' as tv_series_url %}
+{% url 'bookmarked' as bookmarked_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +24,39 @@
 </head>
 
 <body>
-    <h1>Base.html</h1>
-    {% block content %}
-    {% endblock %}
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="row">
+                    <div class="col-xl-2" id="nav-wrapper">
+                        <nav>
+                            <span class="icon">{% svg 'logo' %}</span>
+                            <div class="nav-icons">
+                                <a href="{{ main_url }}"
+                                    class="icon {% if request.path == main_url %}active{% endif %}">{% svg 'icon-nav-home' %}</a>
+                                <a href="{{ movies_url }}"
+                                    class="icon {% if request.path == movies_url %}active{% endif %}">{% svg 'icon-nav-movies' %}</a>
+                                <a href="{{ tv_series_url }}"
+                                    class="icon {% if request.path == tv_series_url %}active{% endif %}">{% svg 'icon-nav-tv-series' %}</a>
+                                <a href="{{ bookmarked_url }}"
+                                    class="icon {% if request.path == bookmarked_url %}active{% endif %}">{% svg 'icon-nav-bookmark' %}</a>
+                            </div>
+                            <img src="{% static 'images/image-avatar.png' %}" id="avatar" alt="Avatar" height="30">
+                        </nav>
+                    </div>
+                    <div class="col wrapper">
+                        <div class="search">
+                            <a href="{{ main_url }}" class="icon">{% svg 'icon-search' %}</a>
+                            <input type="text" name="user-input" id="user-input" placeholder="Search for movies or TV series">
+                        </div>
+                        {% block content %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

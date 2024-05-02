@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --red: #FC4747;
+    --lightblue: #5A698F;
+    --darkblue: #161D2F;
+    --lightblack: #10141E;
+}
+
+/* 
+  color: var(--lightblack) 
+  */
+
+body {
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+    background-color: var(--lightblack);
+}
+
+#avatar {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+nav {
+    background-color: var(--darkblue);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-svg path {
+    transform: scale(0.8);
+}
+
+#nav-wrapper {
+    padding: 0;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.nav-icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.icon:hover path {
+    fill: var(--red);
+}
+
+.active path {
+    fill: white;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+#user-input {
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    width: 80%;
+    color: white;
+    caret-color: var(--red);
+}
+
+#user-input:focus {
+    outline: none;
+}
+
+.trending {
+    /* position: absolute; */
+}
+
+.trending-item {
+    border-radius: 20px;
+}
+
+.trending-text {
+    position: relative;
+    top: -54px;
+    left: 19px;
+}
+
+@media screen and (min-width: 1200px) {
+    main { 
+        margin: 50px 0;
+    }
+
+    nav { 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 680px;
+        border-radius: 15px;
+        width: 100px;
+    }
+
+    #nav-wrapper {
+        max-width: 100px;
+    }
+
+    .nav-icons {
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        height: 250px;
+        justify-self: flex-start;
+        margin-bottom: auto;
+    }
+    
+}
