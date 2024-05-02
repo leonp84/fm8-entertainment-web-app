@@ -1,0 +1,1 @@
+web: gunicorn ewa.wsgi
