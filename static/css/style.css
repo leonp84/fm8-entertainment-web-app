@@ -34,6 +34,7 @@ nav {
 
 .small-svg path {
     transform: scale(0.8);
+    fill: lightgray;
 }
 
 #nav-wrapper {
@@ -41,7 +42,7 @@ nav {
 }
 
 .wrapper {
-    padding: 20px;
+    padding: 13px;
 }
 
 .nav-icons {
@@ -81,8 +82,13 @@ nav {
     outline: none;
 }
 
+.movie {
+    cursor: pointer;
+}
+
 .trending {
-    /* position: absolute; */
+    height: 165px;
+    width: 240px;
 }
 
 .trending-item {
@@ -90,10 +96,111 @@ nav {
 }
 
 .trending-text {
+    font-size: smaller;
+    color: lightgray;
     position: relative;
+    font-weight: 500;
     top: -54px;
     left: 19px;
 }
+
+.trending-title {
+    color: white;
+}
+
+.recommended-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+
+.reco {
+    height: 165px;
+    width: 165px;
+    /* border: 2px solid yellow;  */
+    margin: 10px 4px;
+}
+
+.reco-item {
+    border-radius: 20px;
+}
+
+.reco-text {
+    font-size: smaller;
+    color: lightgray;
+    position: relative;
+    font-weight: 400;
+    top: 9px;
+    left: 2px;
+}
+
+.reco-title {
+    color: white;
+}
+
+.reco .play-button {
+    top: -153px;
+    left: 34px;
+}
+
+.reco .bookmark-icon {
+    top: -150px;
+    left: 124px;
+}
+
+.bookmark-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.435);
+    height: 32px;
+    width: 32px;
+    top: -175px;
+    left: 197px;
+}
+
+.bookmark-icon path {
+    transform: scale(1.2);
+}
+
+.bookmark-hover {
+    background-color: white;
+    stroke: black;
+    cursor: pointer;
+}
+
+.bookmarked-clicked {
+    fill: white;
+}
+
+.play-button {
+    font-size: larger;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.435);
+    border: 1px solid transparent;
+    width: 104px;
+    height: 43px;
+    border-radius: 55px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.trending .play-button {
+    top: -175px;
+    left: 68px;
+}
+
+
+
+.play-hover {
+    border: 1px solid white;
+}
+
+
 
 @media screen and (min-width: 1200px) {
     main { 
@@ -111,6 +218,7 @@ nav {
 
     #nav-wrapper {
         max-width: 100px;
+        margin-right: 20px;
     }
 
     .nav-icons {

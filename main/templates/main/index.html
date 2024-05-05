@@ -5,19 +5,144 @@
 
 {% block content %}
 <br>
-<h1 class="display-6">Trending</h1>
-<div class="trending">
+<h1 class="display-6 mb-3">Trending</h1>
+
+<div class="trending movie">
     <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
         class="trending-item" alt="Trending Movie">
     <div class="trending-text">
         <span>2019</span>
-        <span>&bull;</span>
+        <span>&nbsp;&bull;&nbsp;</span>
         <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
         <span>Movie</span>
-        <span>&bull;</span>
+        <span>&nbsp;&bull;&nbsp;</span>
         <span>PG</span>
-        <h5 class="trending-title">Beyond Earth</h5>
+        <h6 class="trending-title">Beyond Earth</h6>
+    </div>
+    <div class="bookmark-icon">
+        <span>{% svg 'icon-bookmark-empty' %}</span>
+    </div>
+    <div class="play-button" style="display: none;">
+        <span>{% svg 'icon-play' %}</span>
+        <span>Play</span>
+    </div>
+</div>
+
+<h1 class="display-6 mb-3">Recommended for you</h1>
+
+<div class="recommended-container">
+
+    <!-- Movie Item -->
+    <div class="reco movie">
+        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="158" height="110"
+            class="reco-item" alt="Recommended Movie">
+        <div class="reco-text">
+            <span>2019</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            <span>Movie</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>E</span>
+            <h6 class="reco-title">The Great Lands</h6>
+        </div>
+        <div class="bookmark-icon">
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
     </div>
 
+    <!-- Movie Item -->
+    <div class="reco movie">
+        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
+            class="reco-item" alt="Recommended Movie">
+        <div class="reco-text">
+            <span>2019</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            <span>Movie</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>E</span>
+            <h6 class="reco-title">The Great Lands</h6>
+        </div>
+        <div class="bookmark-icon">
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
+
+    <!-- Movie Item -->
+    <div class="reco movie">
+        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
+            class="reco-item" alt="Recommended Movie">
+        <div class="reco-text">
+            <span>2019</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            <span>Movie</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>E</span>
+            <h6 class="reco-title">The Great Lands</h6>
+        </div>
+        <div class="bookmark-icon">
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
+
+    <!-- Movie Item -->
+    <div class="reco movie">
+        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
+            class="reco-item" alt="Recommended Movie">
+        <div class="reco-text">
+            <span>2019</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            <span>Movie</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>E</span>
+            <h6 class="reco-title">The Great Lands</h6>
+        </div>
+        <div class="bookmark-icon">
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
+
+    <!-- Movie Item -->
+    <div class="reco movie">
+        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="155" height="110"
+            class="reco-item" alt="Recommended Movie">
+        <div class="reco-text">
+            <span>2019</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            <span>Movie</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>E</span>
+            <h6 class="reco-title">The Great Lands</h6>
+        </div>
+        <div class="bookmark-icon">
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
 </div>
+
+
+
 {% endblock %}
