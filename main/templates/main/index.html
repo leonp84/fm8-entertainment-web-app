@@ -5,6 +5,8 @@
 
 {% block content %}
 <br>
+
+{% if trending|length > 0 %}
 <h1 class="display-6 mb-3">Trending</h1>
 
 <div class="trending-container">
@@ -33,6 +35,7 @@
             {% else %}
             <span>{% svg 'icon-bookmark-empty' %}</span>
             {% endif %}
+            <span style="display: none" class="item-id">{{ item.id }}</span>
         </div>
         <div class="play-button" style="display: none;">
             <span>{% svg 'icon-play' %}</span>
@@ -43,6 +46,9 @@
 </div>
 
 <h1 class="display-6 mb-3">Recommended for you</h1>
+{% else %}
+<h1 class="display-6 mb-3">Found {{ recommended|length}} results for '{{user_input}}'</h1>
+{% endif %}
 
 <div class="recommended-container">
 
@@ -70,6 +76,7 @@
             {% else %}
             <span>{% svg 'icon-bookmark-empty' %}</span>
             {% endif %}
+            <span style="display: none" class="item-id">{{ item.id }}</span>
         </div>
         <div class="play-button" style="display: none;">
             <span>{% svg 'icon-play' %}</span>

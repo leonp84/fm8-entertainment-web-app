@@ -19,6 +19,16 @@ body {
     background-color: var(--lightblack);
 }
 
+#search-form, #user-input {
+    min-width: 280px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 #avatar {
     border: 2px solid white;
     border-radius: 50%;
@@ -66,10 +76,7 @@ nav {
     fill: white;
 }
 
-.search {
-    display: flex;
-    align-items: center;
-}
+
 
 #user-input {
     border: none;
@@ -238,7 +245,7 @@ nav {
     #nav-wrapper {
         max-width: 100px;
         margin-right: 20px;
-        margin-left: 50px;
+        margin-left: 100px;
     }
 
     .nav-icons {

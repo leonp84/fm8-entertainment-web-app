@@ -26,7 +26,7 @@
 <body>
     <main class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-8">
+            <div class="col-xl-10">
                 <div class="row">
                     <div class="col-xl-2" id="nav-wrapper">
                         <nav>
@@ -46,9 +46,12 @@
                     </div>
                     <div class="col wrapper">
                         <div class="search">
-                            <a href="{{ main_url }}" class="icon">{% svg 'icon-search' %}</a>
-                            <input type="text" name="user-input" id="user-input"
-                                placeholder="Search for movies or TV series">
+                            <form id="search_form" method="post">
+                                <a href="{{ main_url }}" class="icon">{% svg 'icon-search' %}</a>
+                                <input type="text" name="user-input" id="user-input"
+                                    placeholder="Search for movies or TV series">
+                                {% csrf_token %}
+                            </form>
                         </div>
 
                         {% block content %}

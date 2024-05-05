@@ -6,12 +6,14 @@
 {% block content %}
 
 <br>
-<h1 class="display-6 mb-3">Bookmarked</h1>
+{% if bookmarked_items_movies|length > 0 %}
+
+<h1 class="display-6 mb-3">Bookmarked Movies</h1>
 
 <div class="recommended-container">
 
     <!-- Visual Media Item -->
-    {% for item in bookmarked_items %}
+    {% for item in bookmarked_items_movies %}
     <div class="reco item">
         <img src="{% static item.thumbnail_regular_small %}" width="160" height="110" class="reco-item"
             alt="Recommended item">
@@ -34,6 +36,7 @@
             {% else %}
             <span>{% svg 'icon-bookmark-empty' %}</span>
             {% endif %}
+            <span style="display: none" class="item-id">{{ item.id }}</span>
         </div>
         <div class="play-button" style="display: none;">
             <span>{% svg 'icon-play' %}</span>
@@ -43,6 +46,49 @@
     {% endfor %}
     
 </div>
+{% endif %}
+<br>
+{% if bookmarked_items_tv|length > 0 %}
+
+<h1 class="display-6 mb-3">Bookmarked TV Series</h1>
+
+<div class="recommended-container">
+
+    <!-- Visual Media Item -->
+    {% for item in bookmarked_items_tv %}
+    <div class="reco item">
+        <img src="{% static item.thumbnail_regular_small %}" width="160" height="110" class="reco-item"
+            alt="Recommended item">
+        <div class="reco-text">
+            <span>{{ item.year }}</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            {% if item.category == 'Movie' %}
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            {% else %}
+            <span class="small-svg">{% svg 'icon-nav-tv-series' %}</span>
+            {% endif %}
+            <span>{{ item.category }}</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>{{ item.rating }}</span>
+            <h6 class="trending-title">{{ item.title }}</h6>
+        </div>
+        <div class="bookmark-icon">
+            {% if item.isBookmarked == True %}
+            <span>{% svg 'icon-bookmark-full' %}</span>
+            {% else %}
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+            {% endif %}
+            <span style="display: none" class="item-id">{{ item.id }}</span>
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+{% endif %}
 
 
   {% endblock %}

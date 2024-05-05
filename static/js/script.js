@@ -15,7 +15,6 @@ $(function (){
     })};
     
     $(".bookmark-icon").click(function() {
-        console.log($(this).find('path').css('fill'));
         if ($(this).find('path').attr('fill') == 'none') {
             $(this).find('path').attr('fill', 'white')
         } else {
@@ -24,7 +23,7 @@ $(function (){
             $(this).find('path').attr('stroke-width', '1.5')
 
         } 
-        console.log($(this).prev().find('h6').html())
+        // console.log($(this).find('.item-id').text())
         $.ajax({
             url: "/update_bookmarks/",
             type: "POST",
@@ -32,7 +31,7 @@ $(function (){
             headers: {
                 "X-Requested-With": "XMLHttpRequest",
                 "X-CSRFToken": CSRF_TOKEN, 
-                'item': $(this).prev().find('h6').html()
+                'item': $(this).find('.item-id').text()
               },
             success: function(response) {
                 console.log(response.message);
