@@ -65,6 +65,9 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- MyJS -->
     <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        var CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
 </body>
 
 </html>

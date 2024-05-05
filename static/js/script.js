@@ -1,7 +1,7 @@
 $(function (){
 
     if ($(window).width() > 1000) {
-    $('.movie').hover(function() {
+    $('.item').hover(function() {
         $(this).children('.play-button').toggle();
     });
 
@@ -13,10 +13,34 @@ $(function (){
         $(this).toggleClass('bookmark-hover');
         $(this).find('path').toggleClass('bookmark-hover');
     })};
+    
+    $(".bookmark-icon").click(function() {
+        console.log($(this).find('path').css('fill'));
+        if ($(this).find('path').attr('fill') == 'none') {
+            $(this).find('path').attr('fill', 'white')
+        } else {
+            $(this).find('path').attr('fill', 'none');
+            $(this).find('path').attr('stroke', 'white')
+            $(this).find('path').attr('stroke-width', '1.5')
 
-    $('.bookmark-icon').on('click', function() {
-        $(this).find('path').toggleClass('bookmarked-clicked');
+        } 
+        console.log($(this).prev().find('h6').html())
+        $.ajax({
+            url: "/update_bookmarks/",
+            type: "POST",
+            dataType: "json",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRFToken": CSRF_TOKEN, 
+                'item': $(this).prev().find('h6').html()
+              },
+            success: function(response) {
+                console.log(response.message);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
+        });
     });
-
 
 });

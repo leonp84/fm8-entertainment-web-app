@@ -8,3 +8,9 @@ node_modules/
 .github/
 cloudinary_python.txt
 env.py
+*.sketch
+*.fig
+*.xd
+.DS_Store
+.prettierignore
+data.json

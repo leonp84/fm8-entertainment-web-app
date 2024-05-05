@@ -9,253 +9,75 @@
 
 <div class="trending-container">
 
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
+    <!-- Visual Media Item -->
+    {% for item in trending %}
+    <div class="trending item">
+        <img src="{% static item.thumbnail_trending_small %}" width="240" height="140"
+            class="trending-item" alt="Trending item">
         <div class="trending-text">
-            <span>2019</span>
+            <span>{{ item.year }}</span>
             <span>&nbsp;&bull;&nbsp;</span>
+            {% if item.category == 'Movie' %}
             <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
+            {% else %}
+            <span class="small-svg">{% svg 'icon-nav-tv-series' %}</span>
+            {% endif %}
+            <span>{{ item.category }}</span>
             <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
+            <span>{{ item.rating }}</span>
+            <h6 class="trending-title">{{ item.title }}</h6>
         </div>
         <div class="bookmark-icon">
+            {% if item.isBookmarked == True %}
+            <span>{% svg 'icon-bookmark-full' %}</span>
+            {% else %}
             <span>{% svg 'icon-bookmark-empty' %}</span>
+            {% endif %}
         </div>
         <div class="play-button" style="display: none;">
             <span>{% svg 'icon-play' %}</span>
             <span>Play</span>
         </div>
     </div>
-
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
-        <div class="trending-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
-        <div class="trending-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
-        <div class="trending-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
-        <div class="trending-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item (Trending) -->
-    <div class="trending movie">
-        <img src="{% static 'assets/thumbnails/beyond-earth/trending/small.jpg' %}" width="240" height="140"
-            class="trending-item" alt="Trending Movie">
-        <div class="trending-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>PG</span>
-            <h6 class="trending-title">Beyond Earth</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
+    {% endfor %}
 </div>
 
 <h1 class="display-6 mb-3">Recommended for you</h1>
 
 <div class="recommended-container">
 
-    <!-- Movie Item -->
-    <div class="reco movie">
-        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
-            class="reco-item" alt="Recommended Movie">
+    <!-- Visual Media Item -->
+    {% for item in recommended %}
+    <div class="reco item">
+        <img src="{% static item.thumbnail_regular_small %}" width="160" height="110"
+            class="reco-item" alt="Recommended item">
         <div class="reco-text">
-            <span>2019</span>
+            <span>{{ item.year }}</span>
             <span>&nbsp;&bull;&nbsp;</span>
+            {% if item.category == 'Movie' %}
             <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
+            {% else %}
+            <span class="small-svg">{% svg 'icon-nav-tv-series' %}</span>
+            {% endif %}
+            <span>{{ item.category }}</span>
             <span>&nbsp;&bull;&nbsp;</span>
-            <span>E</span>
-            <h6 class="reco-title">The Great Lands</h6>
+            <span>{{ item.rating }}</span>
+            <h6 class="trending-title">{{ item.title }}</h6>
         </div>
         <div class="bookmark-icon">
+            {% if item.isBookmarked == True %}
+            <span>{% svg 'icon-bookmark-full' %}</span>
+            {% else %}
             <span>{% svg 'icon-bookmark-empty' %}</span>
+            {% endif %}
         </div>
         <div class="play-button" style="display: none;">
             <span>{% svg 'icon-play' %}</span>
             <span>Play</span>
         </div>
     </div>
-
-    <!-- Movie Item -->
-    <div class="reco movie">
-        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
-            class="reco-item" alt="Recommended Movie">
-        <div class="reco-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>E</span>
-            <h6 class="reco-title">The Great Lands</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item -->
-    <div class="reco movie">
-        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
-            class="reco-item" alt="Recommended Movie">
-        <div class="reco-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>E</span>
-            <h6 class="reco-title">The Great Lands</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item -->
-    <div class="reco movie">
-        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
-            class="reco-item" alt="Recommended Movie">
-        <div class="reco-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>E</span>
-            <h6 class="reco-title">The Great Lands</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
-
-    <!-- Movie Item -->
-    <div class="reco movie">
-        <img src="{% static 'assets/thumbnails/the-great-lands/regular/small.jpg' %}" width="160" height="110"
-            class="reco-item" alt="Recommended Movie">
-        <div class="reco-text">
-            <span>2019</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
-            <span>Movie</span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <span>E</span>
-            <h6 class="reco-title">The Great Lands</h6>
-        </div>
-        <div class="bookmark-icon">
-            <span>{% svg 'icon-bookmark-empty' %}</span>
-        </div>
-        <div class="play-button" style="display: none;">
-            <span>{% svg 'icon-play' %}</span>
-            <span>Play</span>
-        </div>
-    </div>
+    {% endfor %}
+    
 </div>
 
 

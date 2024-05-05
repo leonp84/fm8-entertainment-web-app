@@ -1,13 +1,48 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load svg %}
+
 {% block content %}
 
-<!-- Coming soon -->
+<br>
+<h1 class="display-6 mb-3">TV Series</h1>
 
-  Search for TV series
-  
-  TV Series
+<div class="recommended-container">
 
-  <!-- Display all TV series -->
-  
-  {% endblock %}
+    <!-- Visual Media Item -->
+    {% for item in tv_items %}
+    <div class="reco item">
+        <img src="{% static item.thumbnail_regular_small %}" width="160" height="110" class="reco-item"
+            alt="Recommended item">
+        <div class="reco-text">
+            <span>{{ item.year }}</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            {% if item.category == 'Movie' %}
+            <span class="small-svg">{% svg 'icon-nav-movies' %}</span>
+            {% else %}
+            <span class="small-svg">{% svg 'icon-nav-tv-series' %}</span>
+            {% endif %}
+            <span>{{ item.category }}</span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <span>{{ item.rating }}</span>
+            <h6 class="trending-title">{{ item.title }}</h6>
+        </div>
+        <div class="bookmark-icon">
+            {% if item.isBookmarked == True %}
+            <span>{% svg 'icon-bookmark-full' %}</span>
+            {% else %}
+            <span>{% svg 'icon-bookmark-empty' %}</span>
+            {% endif %}
+        </div>
+        <div class="play-button" style="display: none;">
+            <span>{% svg 'icon-play' %}</span>
+            <span>Play</span>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+
+
+{% endblock %}

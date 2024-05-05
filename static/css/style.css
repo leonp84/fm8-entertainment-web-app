@@ -84,7 +84,7 @@ nav {
     outline: none;
 }
 
-.movie {
+.item {
     cursor: pointer;
 }
 
@@ -152,7 +152,7 @@ nav {
     font-size: smaller;
     color: lightgray;
     position: relative;
-    font-weight: 400;
+    font-weight: 300;
     top: 9px;
     left: 2px;
 }
