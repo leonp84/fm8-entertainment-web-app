@@ -1,4 +1,6 @@
 $(function (){
+
+    if ($(window).width() > 1000) {
     $('.movie').hover(function() {
         $(this).children('.play-button').toggle();
     });
@@ -10,7 +12,7 @@ $(function (){
     $('.bookmark-icon').hover(function() {
         $(this).toggleClass('bookmark-hover');
         $(this).find('path').toggleClass('bookmark-hover');
-    });
+    })};
 
     $('.bookmark-icon').on('click', function() {
         $(this).find('path').toggleClass('bookmarked-clicked');

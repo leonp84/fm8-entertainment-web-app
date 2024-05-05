@@ -43,6 +43,7 @@ nav {
 
 .wrapper {
     padding: 13px;
+    max-width: 750px;
 }
 
 .nav-icons {
@@ -69,6 +70,7 @@ nav {
     display: flex;
     align-items: center;
 }
+
 #user-input {
     border: none;
     background-color: transparent;
@@ -87,8 +89,11 @@ nav {
 }
 
 .trending {
+    display: inline-block;
     height: 165px;
     width: 240px;
+    margin-right: 10px;
+    position: relative;
 }
 
 .trending-item {
@@ -108,16 +113,34 @@ nav {
     color: white;
 }
 
+.trending-container {
+    height: 165px;
+    white-space: nowrap;
+    overflow: auto;
+    max-width: 685px;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.trending-container::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+}
+
 .recommended-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .reco {
     height: 165px;
     width: 165px;
-    /* border: 2px solid yellow;  */
+    position: relative;
     margin: 10px 4px;
 }
 
@@ -139,8 +162,8 @@ nav {
 }
 
 .reco .play-button {
-    top: -153px;
-    left: 34px;
+    top: 36px;
+    left: 29px;
 }
 
 .reco .bookmark-icon {
@@ -178,7 +201,7 @@ nav {
 .play-button {
     font-size: larger;
     font-weight: 500;
-    background-color: rgba(0, 0, 0, 0.435);
+    background-color: rgba(0, 0, 0, 0.595);
     border: 1px solid transparent;
     width: 104px;
     height: 43px;
@@ -186,28 +209,24 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: relative;
+    position: absolute;
 }
 
 .trending .play-button {
-    top: -175px;
-    left: 68px;
+    top: 50px;
+    left: 71px;
 }
-
-
 
 .play-hover {
     border: 1px solid white;
 }
 
-
-
-@media screen and (min-width: 1200px) {
-    main { 
+@media screen and (min-width: 1000px) {
+    main {
         margin: 50px 0;
     }
 
-    nav { 
+    nav {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -219,6 +238,7 @@ nav {
     #nav-wrapper {
         max-width: 100px;
         margin-right: 20px;
+        margin-left: 50px;
     }
 
     .nav-icons {
@@ -229,5 +249,5 @@ nav {
         justify-self: flex-start;
         margin-bottom: auto;
     }
-    
+
 }
