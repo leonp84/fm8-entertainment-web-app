@@ -17,14 +17,14 @@ $(function (){
     
     $(".bookmark-icon").click(function() {
         if ($(this).find('path').attr('fill') == 'none') {
-
+            $(this).find('path').attr('fill', 'white');
         } else {
             $(this).find('path').attr('fill', 'none');
             $(this).find('path').attr('stroke', 'white');
             $(this).find('path').attr('stroke-width', '1.5');
 
         } 
-        // console.log($(this).find('.item-id').text())
+
         $.ajax({
             url: "/update_bookmarks/",
             type: "POST",
