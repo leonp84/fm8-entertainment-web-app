@@ -1,23 +1,12 @@
-from django.shortcuts import render, HttpResponse # noqa
-from .models import Movie
+from django.shortcuts import render, HttpResponse  # noqa
 from django.http import JsonResponse
+from .models import Movie
 
 
 # Create your views here.
 def main(request):
     trending = Movie.objects.all().filter(isTrending=True)
     recommended = Movie.objects.all().filter(isTrending=False)
-
-    if request.method == 'POST':
-        user_input = request.POST['user-input']
-        search_results = Movie.objects.all().filter(
-            title__icontains=user_input)
-        return render(
-            request,
-            'main/index.html',
-            {'recommended': search_results,
-             'user_input': user_input}
-        )
 
     context = {
         'trending': trending,
@@ -33,16 +22,6 @@ def main(request):
 def movies(request):
     movie_items = Movie.objects.all().filter(category='Movie')
 
-    if request.method == 'POST':
-        search_results = Movie.objects.all().filter(
-            title__icontains=request.POST['user-input'], category='Movie')
-        print(search_results)
-        return render(
-            request,
-            'main/movies.html',
-            {'movie_items': search_results}
-        )
-
     return render(
         request,
         'main/movies.html',
@@ -52,16 +31,6 @@ def movies(request):
 
 def tv_series(request):
     tv_items = Movie.objects.all().filter(category='TV Series')
-
-    if request.method == 'POST':
-        search_results = Movie.objects.all().filter(
-            title__icontains=request.POST['user-input'], category='TV Series')
-        print(search_results)
-        return render(
-            request,
-            'main/movies.html',
-            {'movie_items': search_results}
-        )
 
     return render(
         request,
@@ -75,20 +44,6 @@ def bookmarked(request):
         isBookmarked=True, category='Movie')
     bookmarked_items_tv = Movie.objects.all().filter(
         isBookmarked=True, category='TV Series')
-
-    if request.method == 'POST':
-        bookmarked_items_movies = Movie.objects.all().filter(
-            title__icontains=request.POST[
-                'user-input'], isBookmarked=True, category='Movie')
-        bookmarked_items_tv = Movie.objects.all().filter(
-            title__icontains=request.POST[
-                'user-input'], isBookmarked=True, category='TV Series')
-        return render(
-            request,
-            'main/bookmarked.html',
-            {'bookmarked_items_movies': bookmarked_items_movies,
-             'bookmarked_items_tv': bookmarked_items_tv}
-        )
 
     return render(
         request,
@@ -114,3 +69,34 @@ def update_bookmarks(request):
     print(to_update.title + 'Bookmarked = ' + str(to_update.isBookmarked))
 
     return JsonResponse({'message': 'Model Updated'})
+
+
+def search(request):
+    if request.method == 'POST':
+        user_input = request.POST['user-input']
+        search_results = Movie.objects.all().filter(
+            title__icontains=user_input)
+        return render(
+            request,
+            'main/search.html',
+            {'search_items': search_results,
+             'user_input': user_input}
+        )
+
+
+def login(request):
+
+    if request.method == 'POST':
+        return render(
+            request,
+            'main/index.html')
+
+    return render(
+        request,
+        'main/login.html')
+
+
+def sign_up(request):
+    return render(
+        request,
+        'main/sign-up.html')

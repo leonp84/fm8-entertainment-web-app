@@ -1,0 +1,72 @@
+{% load static %}
+{% load svg %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- MyCSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Frontend Mentor | Entertainment web app</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="row justify-content-center">
+
+            <div class="logo d-flex justify-content-center mt-3">
+                <a href="{% url 'main' %}">
+                    {% svg 'logo' %}
+                </a>
+            </div>
+
+            <form method="POST" action="{% url 'main' %}" class="user-forms">
+
+                <h5 class="display-6 mt-3 mb-5">Login</h5>
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-2">
+                    <!-- <label class="form-label" for="form2Example1">Email address</label> -->
+                    <input placeholder="Email address" id="form2Example1" class="form-control" required>
+
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-2">
+                    <!-- <label class="form-label" for="form2Example2">Password</label> -->
+                    <input placeholder="Password" type="password" id="form2Example2" class="form-control" required>
+
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg p-3 my-4 mt-5">Login
+                    to your account</button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Don't have an account?&nbsp;&nbsp;<a href="{% url 'sign_up' %}">Sign Up</a></p>
+                </div>
+                {% csrf_token %}
+            </form>
+
+        </div>
+    </main>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- MyJS -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        var CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
+</body>
+
+</html>

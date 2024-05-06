@@ -41,12 +41,14 @@
                                 <a href="{{ bookmarked_url }}"
                                     class="icon {% if request.path == bookmarked_url %}active{% endif %}">{% svg 'icon-nav-bookmark' %}</a>
                             </div>
-                            <img src="{% static 'images/image-avatar.png' %}" id="avatar" alt="Avatar" height="30">
+                            <a href="{% url 'login' %}">
+                                <img src="{% static 'images/image-avatar.png' %}" id="avatar" alt="Avatar" height="30">
+                            </a>
                         </nav>
                     </div>
                     <div class="col wrapper">
                         <div class="search">
-                            <form id="search_form" method="post">
+                            <form id="search_form" method="post" action="{% url 'search' %}">
                                 <a href="{{ main_url }}" class="icon">{% svg 'icon-search' %}</a>
                                 <input type="text" name="user-input" id="user-input"
                                     placeholder="Search for movies or TV series">

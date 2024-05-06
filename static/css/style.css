@@ -7,10 +7,6 @@
     --lightblack: #10141E;
 }
 
-/* 
-  color: var(--lightblack) 
-  */
-
 body {
     font-family: "Outfit", sans-serif;
     font-size: 15px;
@@ -89,6 +85,7 @@ nav {
 
 #user-input:focus {
     outline: none;
+    border: none;
 }
 
 .item {
@@ -121,7 +118,8 @@ nav {
 }
 
 .trending-container {
-    height: 165px;
+    border-right: 1px solid rgba(211, 211, 211, 0.33);
+    height: 140px;
     white-space: nowrap;
     overflow: auto;
     max-width: 685px;
@@ -141,6 +139,7 @@ nav {
 .recommended-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     max-width: 750px;
 }
 
@@ -225,8 +224,67 @@ nav {
 }
 
 .play-hover {
-    border: 1px solid white;
+    box-shadow: 1px 1px 10px white;
 }
+
+#avatar:hover {
+    border: 2px solid var(--red);
+}
+
+.user-forms {
+    background-color: #161D2F;
+    border-radius: 20px;
+    width: 360px;
+    padding: 20px 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.user-forms input { 
+    background-color: transparent;
+    padding: 20px 10px;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid lightgray;
+    color: white;
+    caret-color: var(--red);
+}
+
+.user-forms input:focus { 
+    background-color: transparent;
+    outline: none;
+    color: white;
+}
+
+.user-forms a { 
+    color: #FC4747;
+    text-decoration: none;
+}
+
+.user-forms a:hover { 
+    text-decoration: underline;
+}
+
+.user-forms button { 
+    background-color: #FC4747;
+    color: rgb(242, 232, 232);
+    width: 310px;
+}
+
+.user-forms button:hover { 
+    background-color: white;
+    color: black;
+}
+
+input:invalid + span::after {
+    content: "Please enter a valid value.";
+    color: red;
+    font-size: 0.8em;
+  }
 
 @media screen and (min-width: 1000px) {
     main {
@@ -255,6 +313,10 @@ nav {
         height: 250px;
         justify-self: flex-start;
         margin-bottom: auto;
+    }
+
+    .recommended-container {
+        justify-content: start;
     }
 
 }

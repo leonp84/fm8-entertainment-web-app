@@ -90,5 +90,11 @@
 </div>
 {% endif %}
 
+{% if bookmarked_items_tv|length == 0  and bookmarked_items_movies|length == 0%}
+
+<h4 class="display-6 fs-3">You have no bookmarked items.</h4>
+
+{% endif %}
+
 
   {% endblock %}
